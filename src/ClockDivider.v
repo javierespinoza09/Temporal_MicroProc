@@ -3,7 +3,8 @@ module ClockDivider(clock_in,clock_out);
 input clock_in; 
 output reg clock_out; 
 reg[27:0] counter=28'd0;
-parameter DIVISOR = 28'd12500;
+wire Resultado;
+parameter DIVISOR = 28'd20000;
 always @(posedge clock_in)
 begin
  counter <= counter + 28'd1;

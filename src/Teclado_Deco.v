@@ -1,29 +1,29 @@
 module Teclado_Deco(
-    input [3:0] in,
+    input a, b, c, d,
     output reg [3:0] Salida    
     );
     
     always @(*)begin
-        case(in)
+        case({a,b,c,d})
             //OPERANDOS
-            1000: Salida = 0000; //Numero 0
-            0011: Salida = 0001; //NUMERO 1
-            1011: Salida = 0010; //Numero 2
-            0111: Salida = 0011; //Numero 3
-            0001: Salida = 0101; //Numero 4
-            1001: Salida = 0101; //Numero 5
-            0101: Salida = 0110; //Numero 6
-            0010: Salida = 0111; //Numero 7
-            1010: Salida = 1000; //Numero 8
-            0110: Salida = 1001; //Numero 9
+            4'b1000: Salida = 4'b0000; //Numero 0
+            4'b0011: Salida = 4'b0001; //NUMERO 1
+            4'b1011: Salida = 4'b0010; //Numero 2
+            4'b0111: Salida = 4'b0011; //Numero 3
+            4'b0001: Salida = 4'b0100; //Numero 4
+            4'b1001: Salida = 4'b0101; //Numero 5
+            4'b0101: Salida = 4'b0110; //Numero 6
+            4'b0010: Salida = 4'b0111; //Numero 7
+            4'b1010: Salida = 4'b1000; //Numero 8
+            4'b0110: Salida = 4'b1001; //Numero 9
             
             //OPERADORES
-            0000: Salida = 1111; //Tecla *
-            0100: Salida = 1110; //Tecla #
-            1111: Salida = 1101; //Tecla A
-            1101: Salida = 1100; //Tecla B
-            1110: Salida = 1011; //Tecla C
-            1100: Salida = 1010; //Tecla D
+            4'b0000: Salida = 4'b1111; //Tecla *
+            4'b0100: Salida = 4'b1110; //Tecla #
+            4'b1111: Salida = 4'b1101; //Tecla A
+            4'b1101: Salida = 4'b1100; //Tecla B
+            4'b1110: Salida = 4'b1011; //Tecla C
+            4'b1100: Salida = 4'b1010; //Tecla D
             
         endcase     
     end

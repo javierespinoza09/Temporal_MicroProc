@@ -2,19 +2,25 @@
 
 module TB_Pulsador;
 
-reg CLK, Reset, Pulsador;
+reg CLK100MHz, CLK10MHz, Reset, Pulsador;
 wire Salida;
 
 wire CLK2, CLK3;
 
 
-Gen_Pulso F1(.KEY(Pulsador), .CLK(CLK), .RESET(Reset),
+Gen_Pulso F1(.KEY(Pulsador), .CLK(CLK10MHz), .RESET(Reset),
 .SALIDA(Salida), .CLK3(CLK2), .CLK4(CLK3));
 
-
+//100 MHz
 initial begin 
-    CLK = 0;
-    forever #5 CLK = ~CLK;
+    CLK100MHz = 0;
+    forever #5 CLK100MHz = ~CLK100MHz;
+end
+
+//10 MHz
+initial begin 
+    CLK10MHz = 0;
+    forever #50 CLK10MHz = ~CLK10MHz;
 end
 
 initial begin
